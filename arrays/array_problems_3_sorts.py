@@ -124,8 +124,17 @@ def bubble_sort(arr: Array) -> None:
         print(arr)
 
 
+def is_sorted(arr: Array) -> bool:
+    """return if an array is sorted"""
+    for i in range(1, arr.length):
+        if arr.get(i - 1) > arr.get(i):
+            return False
+    return True
+
+
 if __name__ == "__main__":
-    elements = [9, 2, 104, 56, 6, 8]
+    # elements = [9, 2, 104, 56, 6, 8]
+    elements = [1, 2, 2, 2, 2, 4, 32]
     sample_arr = Array(len(elements))
     for element in range(len(elements)):
         sample_arr.insert(element, elements[element])
@@ -136,9 +145,11 @@ if __name__ == "__main__":
     # bs_left = binary_search_first_occurrence_variant(sample_arr, 8)
     # bs_right = binary_search_last_occurrence_variant(sample_arr, 60)
     # bs_insert = binary_search_insert_variant(sample_arr, 5)
+    check_sort = is_sorted(sample_arr)
     # print("ls_______:", ls)
     # print("bs_______:", bs)
     # print("bs_right_:", bs_right)
     # print("bs_insert:", bs_insert)
     # selection_sort(sample_arr)
     # bubble_sort(sample_arr)
+    print(check_sort)
