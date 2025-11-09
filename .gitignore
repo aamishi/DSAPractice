@@ -1,3 +1,5 @@
 arrays/__pycache__/*.pyc
 .DS_Store
 .idea
+
+leetcode/other_category/mountain_peeks.py
