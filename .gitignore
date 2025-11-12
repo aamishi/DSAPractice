@@ -3,3 +3,6 @@ arrays/__pycache__/*.pyc
 .idea
 
 leetcode/other_category/mountain_peeks.py
+
+.obsidian
+.gitignore
