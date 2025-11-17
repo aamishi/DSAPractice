@@ -28,8 +28,8 @@ def merge_sort(arr: list, debug: bool = False) -> list:
     debug_log(debug, f"Split: {arr} -> Left: {left_arr}, Right: {right_arr}")
 
     # conquer - obtain singletons and compare
-    left_sorted = merge_sort(left_arr)
-    right_sorted = merge_sort(right_arr)
+    left_sorted = merge_sort(left_arr, debug)
+    right_sorted = merge_sort(right_arr, debug)
 
     # combine
     final_merged = merge(left_sorted, right_sorted, debug)
@@ -40,24 +40,25 @@ def merge(left: list, right: list, debug) -> list:
     """Merge Sort helper"""
     result = []
     i = j = 0
-    debug_log(debug, "comparing", left, "&", right)
+    debug_log(debug, "\tcomparing", left, "&", right)
 
     # this take O(n) time, cuz you still compare every element in each of the two lists
     while i < len(left) and j < len(right):
         if left[i] <= right[j]:
-            debug_log(debug, "smaller found in left", left[i])
+            debug_log(debug, "\t\tsmaller found in left", left[i])
             result.append(left[i])
             i += 1
         else:
-            debug_log(debug, "smaller found in right", right[j])
+            debug_log(debug, "\t\tsmaller found in right", right[j])
             result.append(right[j])
             j += 1
-        debug_log(debug, "adding smallest", result)
+        debug_log(debug, "\t\t\tadding smallest", result)
 
     # assert max(left) <= min(right)
     result.extend(left[i:])
     result.extend(right[j:])
-    debug_log(debug, "adding remaining", result)
+    debug_log(debug, "\tadding remaining", result)
+    debug_log(debug, "\t--------------------------------------------------")
     return result
 
 
@@ -70,7 +71,8 @@ def debug_log(debug, *args) -> None:
 if __name__ == "__main__":
     DEBUG = True
     # DEBUG = False
-    lst_1 = [8, 3, -1, 5, 2, 1]
+    lst_1 = [8, 3, -1, 5, 2, 1, 2, 1, 4, 3]
+    # lst_1 = [2, 1, 4, 3]
     # res_1 = merge_sort(lst_1)
     res_1 = merge_sort(lst_1, debug=DEBUG)
     print(res_1)

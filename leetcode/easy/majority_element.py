@@ -1,5 +1,5 @@
 """
-Leetcode - 169
+Leetcode - 169 - Easy
 Majority element
 """
 from collections import defaultdict
